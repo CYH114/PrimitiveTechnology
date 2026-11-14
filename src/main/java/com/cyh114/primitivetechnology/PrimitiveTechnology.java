@@ -1,4 +1,4 @@
-package com.myname.mymodid;
+package com.cyh114.primitivetechnology;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -10,13 +10,21 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 
-@Mod(modid = MyMod.MODID, version = Tags.VERSION, name = "MyMod", acceptedMinecraftVersions = "[1.7.10]")
-public class MyMod {
+@Mod(
+    modid = PrimitiveTechnology.MODID,
+    version = PrimitiveTechnology.VERSION,
+    name = PrimitiveTechnology.NAME,
+    acceptedMinecraftVersions = "[1.7.10]")
+public class PrimitiveTechnology {
 
-    public static final String MODID = "mymodid";
+    public static final String MODID = "primitivetechnology";
     public static final Logger LOG = LogManager.getLogger(MODID);
+    public static final String VERSION = "0.0.1";
+    public static final String NAME = "PrimitiveTechnology";
 
-    @SidedProxy(clientSide = "com.myname.mymodid.ClientProxy", serverSide = "com.myname.mymodid.CommonProxy")
+    @SidedProxy(
+        clientSide = "com.cyh114.primitivetechnology.ClientProxy",
+        serverSide = "com.cyh114.primitivetechnology.CommonProxy")
     public static CommonProxy proxy;
 
     @Mod.EventHandler

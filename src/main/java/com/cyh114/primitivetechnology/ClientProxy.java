@@ -1,4 +1,4 @@
-package com.myname.mymodid;
+package com.cyh114.primitivetechnology;
 
 public class ClientProxy extends CommonProxy {
 
