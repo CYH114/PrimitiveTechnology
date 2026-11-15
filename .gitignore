@@ -63,6 +63,9 @@ bin/
 build/
 .gradle/
 
+## Locally mirrored dependencies (see repositories.gradle / libs/maven) ##
+libs/
+
 # Debugging #
 ## Gradle ##
 run/

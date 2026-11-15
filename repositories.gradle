@@ -1,5 +1,23 @@
 // Add any additional repositories for your dependencies here.
 
 repositories {
-
+    // gregtech.overminddl1.com 在本机网络下 TLS 握手会被 Gradle 的 HTTP 客户端中断
+    // （Could not GET .../Thaumcraft-1.7.10-4.2.3.5.pom > Remote host terminated the handshake），
+    // 而 curl/普通 Java 直连都正常，属于该主机链路问题；GTNH Nexus 也没有这个坐标。
+    // 因此把 thaumcraft 组整体改成从本地镜像解析，彻底绕开该主机。
+    // 镜像目录 libs/maven/thaumcraft/Thaumcraft/1.7.10-4.2.3.5/ 内应有：
+    //   Thaumcraft-1.7.10-4.2.3.5.pom
+    //   Thaumcraft-1.7.10-4.2.3.5.jar
+    //   Thaumcraft-1.7.10-4.2.3.5-dev.jar
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = 'LocalThaumcraftMirror'
+                url = uri("${rootProject.projectDir}/libs/maven")
+            }
+        }
+        filter {
+            includeGroup('thaumcraft')
+        }
+    }
 }

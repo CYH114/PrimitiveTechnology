@@ -12,10 +12,17 @@ pluginManagement {
         }
         gradlePluginPortal()
         mavenCentral()
+        maven {
+            name = "JitPack"
+            url = uri("https://jitpack.io")
+            mavenContent {
+                includeGroupByRegex("com\\.github\\..+")
+            }
+        }
         mavenLocal()
     }
 }
 
 plugins {
-    id("com.gtnewhorizons.gtnhsettingsconvention") version("2.0.33")
+    id("com.gtnewhorizons.gtnhsettingsconvention") version("2.0.34")
 }
